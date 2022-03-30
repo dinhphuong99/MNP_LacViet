@@ -1,0 +1,55 @@
+<form> 
+    <div class="mb-3">
+    <label for="departmentId" class="form-label">
+        Department
+    </label>  
+
+    <input type="text" class="form-control" name="departmentId" 
+        [(ngModel)]="departmentId" *ngIf="employee.id !=0" disabled>
+
+    <select class="form-control" name="departmentId" id="departmentId" 
+    [(ngModel)] ="departmentId" *ngIf="employee.id==0">
+        <option *ngFor="let department of departmentList$|async" [value]="department.id">
+            {{department.nameDepartment}}
+        </option> 
+    </select> 
+    </div> 
+
+    <div class="mb-3">
+        <label for="firstName" class="form-label">First Name</label>
+        <input type="text" class="form-control" [(ngModel)]="firstName" name="firstName"> 
+    </div>
+
+    <div class="mb-3">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input type="text" class="form-control" [(ngModel)]="lastName" name="lastName"> 
+    </div>
+
+    <div class="mb-3">
+        <label for="position" class="form-label">Position</label>
+        <input type="text" class="form-control" [(ngModel)]="position" name="position"> 
+    </div>
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" [(ngModel)]="title" name="title"> 
+    </div>
+
+    <div class="mb-3">
+        <label for="avatarPath" class="form-label">Link Avatar</label>
+        <input type="text" class="form-control" [(ngModel)]="avatarPath" name="avatarPath"> 
+    </div>
+
+    <button (click)="addEmployee ()" *ngIf="employee.id==0" class="btn btn-primary">
+        Add 
+    </button> 
+
+    <button (click)="updateEmployee ()" *ngIf="employee.id!=0" class="btn btn-primary">
+        Update 
+    </button> 
+
+    <!-- <button (click)="delete(item)" *ngIf="employee.id!=0" class="btn btn-primary">
+        Delete 
+    </button>  -->
+</form>
+

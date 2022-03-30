@@ -1,0 +1,14 @@
+<form> 
+    <div class="mb-3">
+        <label for="nameDepartment" class="form-label">Name</label>
+        <input type="text" class="form-control" [(ngModel)] = "nameDepartment" name = "nameDepartment"> 
+    </div>
+
+    <button (click)="addDepartment ()" *ngIf="department.id==0" class="btn btn-primary">
+        Add 
+    </button> 
+
+    <button (click)="updateDepartment ()" *ngIf="department.id!=0" class="btn btn-primary">
+        Update 
+    </button> 
+</form>
